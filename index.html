@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gauri Savale Portfolio</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="Gauri Savale, B.Tech Computer Science student at Symbiosis Institute of Technology. AI/ML, computer vision, NLP and full-stack projects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER + TABS ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand" aria-label="Home"><span class="brand-mark">GS</span><span class="brand-name">Gauri Savale</span></a>
+    <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch colour theme">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+    </button>
+  </div>
+  <div class="wrap">
+    <nav class="tabs" role="tablist" aria-label="Portfolio sections">
+      <a href="#home" role="tab" class="tab">Home</a>
+      <a href="#education" role="tab" class="tab">Education</a>
+      <a href="#skills" role="tab" class="tab">Skills</a>
+      <a href="#projects" role="tab" class="tab">Projects</a>
+      <a href="#certificates" role="tab" class="tab">Certificates</a>
+      <a href="#achievements" role="tab" class="tab">Achievements</a>
+      <a href="#gallery" role="tab" class="tab">Gallery</a>
+      <a href="#contact" role="tab" class="tab">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HOME: hero + about + career interests ============ -->
+  <section id="home" class="panel" role="tabpanel" aria-label="Home">
+    <div class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">B.Tech Computer Science · Symbiosis Institute of Technology, Pune</p>
+          <h1>Gauri Savale</h1>
+          <p class="role">I build systems that <span id="rotator" class="rotator">see</span>.</p>
+          <p class="lede">Computer Science undergrad building projects across computer vision, NLP and full-stack development, from a webcam and an Arduino to a generative AI pipeline in the browser.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#projects">See my projects</a>
+            <a class="btn btn-ghost" href="assets/Gauri_Savale_Resume.pdf" download>Download resume</a>
+          </div>
+          <ul class="hero-links">
+            <li><a href="https://www.linkedin.com/in/gaurisavale" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a></li>
+            <li><span class="mono">Nagpur, India</span></li>
+          </ul>
+        </div>
+
+        <!-- A live nod to the drowsiness detection project: blinking eyes + an eye aspect ratio readout -->
+        <figure class="monitor" aria-label="Animated demo inspired by the drowsiness detection project">
+          <div class="monitor-head">
+            <span class="dot"></span><span class="mono">drowsiness_monitor.py</span>
+          </div>
+          <div class="photo-frame">
+            <img id="profilePhoto" src="assets/profile.jpg" alt="Photo of Gauri Savale" width="320" height="320">
+            <span class="initials" aria-hidden="true">GS</span>
+          </div>
+          <div class="eyes" aria-hidden="true">
+            <svg class="eye" viewBox="0 0 100 50"><ellipse cx="50" cy="25" rx="46" ry="22" class="sclera"/><circle cx="50" cy="25" r="11" class="iris"/><rect class="lid" x="0" y="0" width="100" height="50"/></svg>
+            <svg class="eye" viewBox="0 0 100 50"><ellipse cx="50" cy="25" rx="46" ry="22" class="sclera"/><circle cx="50" cy="25" r="11" class="iris"/><rect class="lid" x="0" y="0" width="100" height="50"/></svg>
+          </div>
+          <figcaption class="readout mono">
+            <span>EAR <b id="earValue">0.31</b></span>
+            <span id="earState" class="state awake">awake</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="section alt">
+      <div class="wrap split">
+        <h2 class="label">About me</h2>
+        <div class="body">
+          <p class="big">I like projects that go end to end, where the code ends up doing something you can see.</p>
+          <p>I'm a third-year B.Tech Computer Science student at Symbiosis Institute of Technology, Pune. My projects so far include a real-time drowsiness detector that slows a model vehicle, a CBT-based mental health chatbot with crisis escalation, and a pipeline that turns fiction into synchronised audio and visuals.</p>
+          <p>Right now I'm focused on building: sharpening my AI/ML and full-stack skills through projects, and building my cybersecurity foundations alongside.</p>
+          <dl class="facts">
+            <div><dt>Focus</dt><dd>AI/ML, Computer Vision, NLP</dd></div>
+            <div><dt>Currently</dt><dd>Building projects</dd></div>
+            <div><dt>Learning</dt><dd>Network &amp; cloud security</dd></div>
+            <div><dt>Based in</dt><dd>Nagpur / Pune</dd></div>
+          </dl>
+
+          <h3 class="sub">Career interests</h3>
+          <p>Looking for internships in <strong>applied AI / ML</strong>, <strong>computer vision</strong> and <strong>security engineering</strong>, where I can ship working systems and keep learning from people who build them well.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education" class="panel section" role="tabpanel" aria-label="Education">
+    <div class="wrap split">
+      <h2 class="label">Education</h2>
+      <div class="body">
+        <ol class="timeline">
+          <li>
+            <span class="when mono">2024 – present</span>
+            <h3>B.Tech in Computer Science</h3>
+            <p>Symbiosis Institute of Technology, Pune</p>
+          </li>
+          <li>
+            <span class="when mono">Year: add</span>
+            <h3>Class XII (Higher Secondary)</h3>
+            <p class="todo">Add school / junior college name and board</p>
+          </li>
+          <li>
+            <span class="when mono">Year: add</span>
+            <h3>Class X (Secondary)</h3>
+            <p class="todo">Add school name and board</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="panel section" role="tabpanel" aria-label="Skills">
+    <div class="wrap split">
+      <h2 class="label">Technical skills</h2>
+      <div class="body">
+        <div class="skill-grid">
+          <div class="skill-group">
+            <h3>Languages</h3>
+            <ul class="meters">
+              <li><span>Python</span><meter min="0" max="5" value="4.5">4.5/5</meter></li>
+              <li><span>JavaScript</span><meter min="0" max="5" value="3.5">3.5/5</meter></li>
+              <li><span>SQL / PL/SQL</span><meter min="0" max="5" value="3.5">3.5/5</meter></li>
+              <li><span>C</span><meter min="0" max="5" value="3">3/5</meter></li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>AI / ML</h3>
+            <ul class="chips">
+              <li>NLP</li><li>Computer Vision</li><li>Sentiment Analysis</li><li>Generative AI</li><li>Machine Learning</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Frameworks &amp; libraries</h3>
+            <ul class="chips">
+              <li>Django</li><li>React</li><li>Next.js</li><li>OpenCV</li><li>Pandas</li><li>Matplotlib</li><li>Spotipy</li><li>Firebase</li><li>Arduino</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>CS fundamentals</h3>
+            <ul class="chips">
+              <li>Data Structures &amp; Algorithms</li><li>DBMS &amp; Triggers</li><li>SDLC</li><li>Debugging</li><li>Linux (RHEL)</li>
+            </ul>
+          </div>
+          <div class="skill-group wide">
+            <h3>Cybersecurity <span class="tag">learning</span></h3>
+            <ul class="chips">
+              <li>Network Security</li><li>Cloud Security</li><li>Risk Management</li><li>Threat Analysis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="panel section" role="tabpanel" aria-label="Projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="label">Projects</h2>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" class="filter is-on" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="filter" data-filter="ai" aria-pressed="false">AI / ML</button>
+          <button type="button" class="filter" data-filter="web" aria-pressed="false">Web</button>
+          <button type="button" class="filter" data-filter="hardware" aria-pressed="false">Hardware</button>
+          <button type="button" class="filter" data-filter="data" aria-pressed="false">Data</button>
+        </div>
+      </div>
+
+      <div class="projects">
+        <article class="project featured" data-tags="ai hardware">
+          <div class="project-top"><span class="year mono">2026</span><span class="kind mono">CV + embedded</span></div>
+          <h3>Vision-Based Driver Drowsiness Detection &amp; Smart Vehicle Control</h3>
+          <p>Real-time drowsiness detection using adaptive eye-closure analysis that holds up under changing light. When the driver nods off, an Arduino Uno gradually slows the vehicle motors, cutting the simulated stopping distance.</p>
+          <ul class="points">
+            <li>Separate detection, processing and control layers, each testable on its own</li>
+            <li>Adaptive thresholds instead of a fixed eye-closure cutoff</li>
+          </ul>
+          <ul class="stack mono"><li>Python</li><li>OpenCV</li><li>Arduino</li></ul>
+          <a class="code-link" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">View code →</a>
+        </article>
+
+        <article class="project" data-tags="ai web">
+          <div class="project-top"><span class="year mono">2026</span><span class="kind mono">NLP chatbot</span></div>
+          <h3>MindEase: AI Mental Health Chatbot</h3>
+          <p>A chatbot giving CBT-based emotional support, with sentiment analysis and intent classification. Crisis detection escalates high-risk sessions, and sessions are anonymised with private, persistent history.</p>
+          <ul class="stack mono"><li>Python</li><li>Django</li><li>NLP</li><li>MySQL / Firebase</li><li>JavaScript</li></ul>
+          <a class="code-link" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">View code →</a>
+        </article>
+
+        <article class="project" data-tags="ai web">
+          <div class="project-top"><span class="year mono">2026</span><span class="kind mono">GenAI pipeline</span></div>
+          <h3>VisionTale: Cinematic Metadata from Fiction</h3>
+          <p>A multimodal pipeline that turns narrative text into a synchronised audio-visual experience. It classifies text as factual or fictional first to skip needless processing, runs steps in parallel, and syncs TTS to the UI in real time.</p>
+          <ul class="stack mono"><li>React</li><li>Next.js</li><li>NLP</li><li>Generative AI</li><li>TTS</li></ul>
+          <a class="code-link" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">View code →</a>
+        </article>
+
+        <article class="project" data-tags="data">
+          <div class="project-top"><span class="year mono">2025</span><span class="kind mono">Data analytics</span></div>
+          <h3>Spotify Playlist Analyzer</h3>
+          <p>Pulls playlists through the Spotify Web API and reports on genre, mood, artist spread and tempo trends, with charts that point to playlist recommendations.</p>
+          <ul class="stack mono"><li>Python</li><li>Spotipy</li><li>Pandas</li><li>Matplotlib</li></ul>
+          <a class="code-link" href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">View code →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATES ============ -->
+  <section id="certificates" class="panel section" role="tabpanel" aria-label="Certificates">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="label">Certificates</h2>
+        <p class="note">Tap a certificate to view it.</p>
+      </div>
+      <div class="certs" id="certGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ ACHIEVEMENTS + CONTRIBUTIONS ============ -->
+  <section id="achievements" class="panel section" role="tabpanel" aria-label="Achievements">
+    <div class="wrap two-col">
+      <div>
+        <h2 class="label">Achievements</h2>
+        <ul class="list">
+          <li><strong>Red Hat System Administration I</strong><span>Certified, April 2026</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="label">Contributions</h2>
+        <ul class="list">
+          <li><strong>ACM Student Chapter, SIT</strong><span>Active member since 2024. Technical talks, workshops and hackathons.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section id="gallery" class="panel section" role="tabpanel" aria-label="Gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="label">Gallery</h2>
+        <p class="note">Drop photos into <code>assets/gallery/</code> using the names below.</p>
+      </div>
+      <div class="gallery" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="panel section" role="tabpanel" aria-label="Contact">
+    <div class="wrap two-col">
+      <div>
+        <h2 class="label">Contact</h2>
+        <p class="big">Open to internships, project collaborations and a good conversation about AI.</p>
+        <div class="contact-line">
+          <span class="mono" id="emailText">gauri.s.savale@gmail.com</span>
+          <button type="button" class="btn btn-small" id="copyEmail">Copy</button>
+        </div>
+        <ul class="hero-links">
+          <li><a href="https://www.linkedin.com/in/gaurisavale" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://github.com/YOUR-GITHUB-USERNAME" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="assets/Gauri_Savale_Resume.pdf" download>Resume (PDF)</a></li>
+        </ul>
+      </div>
+      <form id="contactForm" class="form" novalidate>
+        <label for="cName">Your name</label>
+        <input id="cName" name="name" type="text" autocomplete="name" required>
+        <label for="cEmail">Your email</label>
+        <input id="cEmail" name="email" type="email" autocomplete="email" required>
+        <label for="cMsg">Message</label>
+        <textarea id="cMsg" name="message" rows="4" required></textarea>
+        <button class="btn btn-primary" type="submit">Write to Gauri</button>
+        <p id="formNote" class="form-note" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span>© <span id="year">2026</span> Gauri Savale</span>
+    <span class="mono">Built with HTML, CSS and vanilla JavaScript</span>
+  </div>
+</footer>
+
+<!-- Certificate viewer -->
+<dialog id="certDialog" class="dialog" aria-labelledby="dlgTitle">
+  <div class="dialog-head">
+    <h3 id="dlgTitle">Certificate</h3>
+    <button type="button" class="icon-btn" id="dlgClose" aria-label="Close">✕</button>
+  </div>
+  <div class="dialog-body" id="dlgBody"></div>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
