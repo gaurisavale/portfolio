@@ -7,6 +7,8 @@
 
 // Certificates. Save each image as assets/certificates/<file>.
 const CERTIFICATES = [
+  { title: "Network Automation with Red Hat Ansible Automation Platform (DO457)", issuer: "Red Hat", date: "Jul 2026", file: "redhat-do457.jpg", short: "DO457",
+    verify: "https://www.credly.com/badges/72f47bc8-1907-4037-9d03-9d4f9d2e2ea2" },
   { title: "Red Hat System Administration I (RH124 v10)", issuer: "Red Hat", date: "Apr 2026", file: "redhat-rh124.jpg", short: "RH124" },
   { title: "Python Programming with Red Hat (AD141 v9.0)", issuer: "Red Hat", date: "Apr 2025", file: "redhat-ad141.jpg", short: "AD141" },
   { title: "Data Structures and Algorithms using Python, Part 1", issuer: "Infosys Springboard", date: "Nov 2025", file: "infosys-dsa.jpg", short: "DSA" },
@@ -116,31 +118,30 @@ function loadImage(img, onMissing) {
   }, 2400);
 })();
 
-/* ---------- 5. Hero: blinking eyes + Eye Aspect Ratio readout ----------
-   The real project measures the Eye Aspect Ratio (EAR): open eyes ~0.3,
-   closed eyes drop near 0.1. Here we fake the signal to show the idea. */
+/* ---------- 5. Hero: blinking eyes + motor readout ----------
+   Mirrors the real drowsiness project: Python counts the eyes OpenCV finds.
+   2 eyes found -> send '1' -> Arduino runs the motor.
+   0 eyes found -> send '0' -> Arduino stops the motor.
+   Here we just fake the blinking to show the idea. */
 (function drowsyDemo() {
   const monitor = $(".monitor"), value = $("#earValue"), state = $("#earState");
   const photo = $("#profilePhoto");
   loadImage(photo); // falls back to the "GS" initials if profile.jpg is missing
 
-  const OPEN = 0.31, CLOSED = 0.09, THRESHOLD = 0.2;
-  function show(ear) {
-    value.textContent = ear.toFixed(2);
-    const drowsy = ear < THRESHOLD;
-    state.textContent = drowsy ? "eyes closed" : "awake";
-    state.className = "state " + (drowsy ? "drowsy" : "awake");
+  function show(eyes) {
+    value.textContent = eyes;
+    const running = eyes > 0;               // same rule as the Python script
+    state.textContent = running ? "motor on" : "motor off";
+    state.className = "state " + (running ? "awake" : "drowsy");
   }
   function blink(duration) {
-    monitor.classList.add("blink"); show(CLOSED);
-    setTimeout(() => { monitor.classList.remove("blink"); show(OPEN); }, duration);
+    monitor.classList.add("blink"); show(0);
+    setTimeout(() => { monitor.classList.remove("blink"); show(2); }, duration);
   }
   if (reduceMotion) return;
-  // jitter the open-eye value a little so it looks live
-  setInterval(() => { if (!monitor.classList.contains("blink")) show(OPEN + (Math.random() - .5) * 0.03); }, 700);
-  // a normal blink every few seconds, and an occasional long "drowsy" one
+  // a quick blink every few seconds, and every 4th one is a long "drowsy" close
   let n = 0;
-  setInterval(() => { n++; blink(n % 4 === 0 ? 1100 : 160); }, 3200);
+  setInterval(() => { n++; blink(n % 4 === 0 ? 1400 : 180); }, 3200);
 })();
 
 /* ---------- 6. Project filter ---------- */
@@ -175,7 +176,8 @@ function loadImage(img, onMissing) {
   function openCert(c) {
     $("#dlgTitle").textContent = c.title;
     const body = $("#dlgBody");
-    body.innerHTML = `<p class="muted">${c.issuer} · ${c.date}${c.inProgress ? " · in progress" : ""}</p>`;
+    body.innerHTML = `<p class="muted">${c.issuer} · ${c.date}${c.inProgress ? " · in progress" : ""}</p>` +
+      (c.verify ? `<p><a href="${c.verify}" target="_blank" rel="noopener">Verify on Credly →</a></p>` : "");
     const img = new Image();
     img.alt = "Certificate: " + c.title;
     img.src = "assets/certificates/" + c.file;
