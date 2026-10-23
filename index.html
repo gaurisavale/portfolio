@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="style.css?v=8">
+  <link rel="stylesheet" href="style.css?v=13">
   <!-- Tab styles kept inline so tabs work even if an old style.css is cached -->
   <style>
     .tabs { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding: 0 0 10px; }
@@ -23,13 +23,23 @@
 </head>
 <body>
 
+<!-- Live background: drifting colour blobs + interactive particle network (script.js, block 12) -->
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+
 <!-- ============ HEADER + TABS ============ -->
 <header class="nav">
   <div class="wrap nav-inner">
     <a href="#home" class="brand" aria-label="Home"><span class="brand-mark">GS</span><span class="brand-name">Gauri Savale</span></a>
-    <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch colour theme">
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
-    </button>
+    <div class="nav-actions">
+      <span id="viewCount" class="views mono" title="Portfolio visits" hidden>
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M12 5C6.5 5 2.7 9.2 1.5 12c1.2 2.8 5 7 10.5 7s9.3-4.2 10.5-7C21.3 9.2 17.5 5 12 5zm0 11.5A4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 0 1 0 9zm0-7a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"/></svg>
+        <b id="viewNumber">0</b><span class="views-label">views</span>
+      </span>
+      <button id="themeBtn" class="icon-btn" type="button" aria-label="Switch colour theme">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+      </button>
+    </div>
   </div>
   <div class="wrap">
     <nav class="tabs" role="tablist" aria-label="Portfolio sections">
@@ -39,7 +49,6 @@
       <a href="#projects" role="tab" class="tab">Projects</a>
       <a href="#certificates" role="tab" class="tab">Certificates</a>
       <a href="#achievements" role="tab" class="tab">Achievements</a>
-      <a href="#gallery" role="tab" class="tab">Gallery</a>
       <a href="#contact" role="tab" class="tab">Contact</a>
     </nav>
   </div>
@@ -175,6 +184,24 @@
             </ul>
           </div>
         </div>
+
+        <!-- Resume skill extractor -->
+        <div class="extractor" id="extractor">
+          <div class="ex-head">
+            <h3>Resume skill extractor</h3>
+            <p class="note">Upload a resume (PDF or TXT) and it lists every skill it finds, grouped by area, and shows which ones we share. It runs in your browser, so the file is never uploaded anywhere.</p>
+          </div>
+          <div id="dropZone" class="drop">
+            <div class="ex-actions">
+              <button type="button" class="btn btn-primary" id="pickResume">Upload a resume</button>
+              <button type="button" class="btn btn-ghost" id="useMyResume">Try it on my resume</button>
+            </div>
+            <p class="drop-hint">or drag a PDF / TXT file here</p>
+            <input id="resumeInput" type="file" accept=".pdf,.txt,application/pdf,text/plain" hidden>
+          </div>
+          <p id="exStatus" class="ex-status" role="status"></p>
+          <div id="exResults" class="ex-results" hidden></div>
+        </div>
       </div>
     </div>
   </section>
@@ -276,17 +303,6 @@
     </div>
   </section>
 
-  <!-- ============ GALLERY ============ -->
-  <section id="gallery" class="panel section" role="tabpanel" aria-label="Gallery">
-    <div class="wrap">
-      <div class="section-head">
-        <h2 class="label">Gallery</h2>
-        <p class="note">Drop photos into <code>assets/gallery/</code> using the names below.</p>
-      </div>
-      <div class="gallery" id="galleryGrid"></div>
-    </div>
-  </section>
-
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="panel section" role="tabpanel" aria-label="Contact">
     <div class="wrap two-col">
@@ -333,6 +349,6 @@
   <div class="dialog-body" id="dlgBody"></div>
 </dialog>
 
-<script src="script.js?v=8"></script>
+<script src="script.js?v=13"></script>
 </body>
 </html>
